@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 # == Part 1 ==
 # Find two numbers in `input` that sum to 2020 and multiply them
@@ -6,7 +7,7 @@
 # == Part 2 ==
 # Do the same, but for a sum of three numbers.
 
-input = File.read('./input').split.map { |x| x.to_i }
+input = File.read('./input').split.map(&:to_i)
 
 input.each do |x|
   input.each do |y|

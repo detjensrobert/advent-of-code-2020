@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 # == Part 1 ==
 # Find all lines where `str` does not contain `c` between `X` and `Y` times.
