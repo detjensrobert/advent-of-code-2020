@@ -4,7 +4,7 @@
 # == Part 1 ==
 # Find how many trees (#) are encountered when moving down 1 and right 3 through the input.
 
-$slope = File.read('input').split("\n").map{|l| l.split('')}
+$slope = File.read('input').split("\n").map { |l| l.split('') }
 $slope_width = $slope[0].size
 
 def calc_trees(x_inc, y_inc)
@@ -13,17 +13,17 @@ def calc_trees(x_inc, y_inc)
 
   trees_encountered = 0
 
-  while x < $slope.size-1
+  while x < $slope.size - 1
     y += y_inc
     x += x_inc
 
-    trees_encountered += 1 if $slope[x][y% $slope_width] == '#'
+    trees_encountered += 1 if $slope[x][y % $slope_width] == '#'
   end
 
-  return trees_encountered
+  trees_encountered
 end
 
-puts "Trees encountered: #{calc_trees(1,3)}"
+puts "Trees encountered: #{calc_trees(1, 3)}"
 
 # == Part 2 ==
 # Find the product of the above for the following slopes:

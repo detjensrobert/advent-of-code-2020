@@ -19,8 +19,8 @@ puts "Highest seat ID: #{seat_ids.max}"
 # == Part 2 ==
 # Find the missing seat that does not already have a pass
 
-missing_seats = (0..(127*8 + 7)).to_a - seat_ids
+missing_seats = (0..(127 * 8 + 7)).to_a - seat_ids
 # Remove leading / trailing continuous sequences -- those seats don't exist on this plane & werent booked
-missing_seats.delete_if.with_index {|s, i| s + 1 == missing_seats[i+1] }
+missing_seats.delete_if.with_index { |s, i| s + 1 == missing_seats[i + 1] }
 
 puts "Missing seat ID: #{missing_seats[1]}"
