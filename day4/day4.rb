@@ -55,7 +55,7 @@ passports.each do |p|
           end
     hcl = p['hcl'].match?(/#[0-9a-f]{6}/)
     ecl = %w[amb blu brn gry grn hzl oth].include? p['ecl']
-    pid = p['pid'].match?(/\d{9}/)
+    pid = p['pid'].match?(/^\d{9}$/)
 
     is_valid = byr && iyr && eyr && hgt && hcl && ecl && pid
   end
