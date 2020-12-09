@@ -55,4 +55,4 @@ def bag_contains(bag_color)
   total
 end
 
-puts "Total bags within a gold bag: #{bag_contains('shiny gold')-1}"
+puts "Total bags within a gold bag: #{bag_contains('shiny gold') - 1}"
