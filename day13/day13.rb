@@ -20,8 +20,43 @@ puts "Bus ID * wait time: #{min_bus * min_wait}"
 # == Part 2 ==
 # Find the time T where all buses in service depart at T + their index?
 
-buses = File.read('./input').split("\n")[1].split(',')
+input = File.read('./input').split("\n")[1].split(',')
 
-buses = buses.map.with_index { |b, i| b == 'x' ? nil : [b.to_i, i] }.compact.to_h
+buses = []
+remainders = []
 
-# bruh i dont understand this one :(
+input.each.with_index do |b, i|
+  next if b == 'x'
+
+  buses.append b.to_i
+  remainders.append b.to_i - i
+end
+
+# sources:
+# https://rosettacode.org/wiki/Modular_inverse#Ruby
+# https://www.geeksforgeeks.org/chinese-remainder-theorem-set-2-implementation/
+def modular_inverse(a, m) # compute a^-1 mod m if possible
+  return m if m == 1
+  m0, inv, x0 = m, 1, 0
+  while a > 1
+    inv -= (a / m) * x0
+    a, m = m, a % m
+    inv, x0 = x0, inv
+  end
+  inv += m0 if inv < 0
+  inv
+end
+
+def chinese_remainder(buses, mods)
+  product = buses.reduce(:*)
+
+  result = 0
+  buses.each.with_index do |b, i|
+    pp = product / b
+    result += mods[i] * modular_inverse(pp, b) * pp
+  end
+
+  result % product
+end
+
+puts "Lowest time for index offsets: #{chinese_remainder(buses, remainders)}"
