@@ -18,14 +18,6 @@ my_ticket = input[1].split("\n")[1].split(',').map(&:to_i)
 other_tickets = input[2].split("\n")[1..-1]
 other_tickets.map! { |t| t.split(',').map(&:to_i) }
 
-# puts 'Restrictions:'
-# restrictions.each { |name, ranges| puts "  #{name}: #{ranges}" }
-
-# puts "My ticket: #{my_ticket}"
-
-# puts 'Other tickets:'
-# other_tickets.each { |t| puts "  #{t.inspect}" }
-
 # == Part 1 ==
 # What is you ticket scanning error rate?
 # (the sum of all values not valid for any field)
