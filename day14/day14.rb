@@ -75,7 +75,7 @@ input.each do |line|
       end
     end
 
-    and_mask = 2**36-1 ^ and_mask
+    and_mask = 2**36 - 1 ^ and_mask
   when /^mem/
     _, addr, value = line.split(/mem\[(\d+)\] = (\d+)/)
 

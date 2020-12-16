@@ -37,7 +37,10 @@ end
 # https://www.geeksforgeeks.org/chinese-remainder-theorem-set-2-implementation/
 def modular_inverse(a, m) # compute a^-1 mod m if possible
   return m if m == 1
-  m0, inv, x0 = m, 1, 0
+
+  m0 = m
+  inv = 1
+  x0 = 0
   while a > 1
     inv -= (a / m) * x0
     a, m = m, a % m

@@ -36,8 +36,6 @@ puts "Product of 1-diff and 3-diff: #{diff1_count * diff3_count}"
 
 # find all permutations of passed array
 previously_found = {}
-def num_permutations(adapters)
+def num_permutations(adapters); end
 
-end
-
-puts "Number of possible adapter chains:"
+puts 'Number of possible adapter chains:'

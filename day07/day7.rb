@@ -31,7 +31,9 @@ def can_contain_gold?(rules, already_known, bag_color)
 
   return true if rules[bag_color].include? 'shiny gold' # stop recursing if we can hold it
 
-  already_known[bag_color] = rules[bag_color].map { |r| can_contain_gold?(rules, already_known, r[0]) }.any? # recurse if not found
+  already_known[bag_color] = rules[bag_color].map do |r|
+    can_contain_gold?(rules, already_known, r[0])
+  end.any? # recurse if not found
   already_known[bag_color]
 end
 

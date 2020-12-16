@@ -83,8 +83,8 @@ def los_filled(seats, x, y)
     end
 
     # in bounds and occupied
-    if (curr_x >= 0 && curr_x < seats.size) && (curr_y >= 0 && curr_y < seats[x].size)
-      filled += 1 if seats[curr_x][curr_y] == '#'
+    if (curr_x >= 0 && curr_x < seats.size) && (curr_y >= 0 && curr_y < seats[x].size) && (seats[curr_x][curr_y] == '#')
+      filled += 1
     end
   end
   filled

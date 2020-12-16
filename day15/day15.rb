@@ -7,7 +7,7 @@
 # What is the 2020th number?
 
 def memory_game(limit)
-  input = File.read('./input').split(",").map(&:to_i)
+  input = File.read('./input').split(',').map(&:to_i)
 
   history = {} # when each number was last spoken
   history.default = [nil, nil]
@@ -22,11 +22,11 @@ def memory_game(limit)
 
   while i < limit
     previous = current
-    if history[previous][1].nil?
-      current = 0
-    else
-      current = history[previous][0] - history[previous][1]
-    end
+    current = if history[previous][1].nil?
+                0
+              else
+                history[previous][0] - history[previous][1]
+              end
 
     history[current] = [i, history[current][0]]
     i += 1
@@ -40,4 +40,4 @@ puts "The 2020th number is: #{memory_game(2020)}"
 # == Part 2 ==
 # what is the 30000000th number?
 
-puts "The 30000000th number is: #{memory_game(30000000)}"
+puts "The 30000000th number is: #{memory_game(30_000_000)}"
